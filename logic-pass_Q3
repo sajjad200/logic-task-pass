@@ -1,0 +1,8 @@
+in_string=input("the String= ")
+print(in_string)
+for i in range(0, len(in_string)):
+    count = 1;
+    for j in range(i+1, len(in_string)):
+        if (in_string[i] == in_string[j] ):
+            count = count + 1;
+            print(in_string[i], " : ", count);
