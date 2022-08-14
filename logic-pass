@@ -1,0 +1,6 @@
+in_string=input("the String= ")
+print(in_string)
+y=input("the remove character= ")
+z=input("the new character= ")
+x=(in_string.replace(y,z))
+print(x)
