@@ -1,0 +1,51 @@
+player_1 = input("choose a  'X' or 'O' : ")
+
+if (player_1  != 'x')  and (player_1 != 'o') :
+    print('error')
+    pass
+
+if player_1 == 'x':
+    player_2 ='o'
+elif player_1 == 'o':
+    player_2='x'
+else:
+    print('error')
+    pass
+print('player 1 is ',player_1,' ', 'player 2 is ',player_2)
+
+def display_screen(tablet):
+    print('\n' * 1)
+    print(tablet[1], ' | ', tablet[2], ' | ', tablet[3])
+    print('--', '|', '---', '|', '--')
+    print(tablet[4], ' | ', tablet[5], ' | ', tablet[6])
+    print('--', '|', '---', '|', '--')
+    print(tablet[7], ' | ', tablet[8], ' | ', tablet[9])
+
+tablet_vale=['null',1,2,3,4,5,6,7,8,9]
+
+def win(player):
+    if (tablet_vale[1]==tablet_vale[2]==tablet_vale[3]) or (tablet_vale[4]==tablet_vale[5]==tablet_vale[6]) or (tablet_vale[7]==tablet_vale[8]==tablet_vale[9]) or ((tablet_vale[1]==tablet_vale[5]==tablet_vale[9])) or ((tablet_vale[3]==tablet_vale[5]==tablet_vale[7])) == player_1:
+        print('player 1 is win ')
+    elif (tablet_vale[1] == tablet_vale[2] == tablet_vale[3]) or (tablet_vale[4] == tablet_vale[5] == tablet_vale[6]) or (tablet_vale[7] == tablet_vale[8] == tablet_vale[9]) or ((tablet_vale[1] == tablet_vale[5] == tablet_vale[9])) or ((tablet_vale[3] == tablet_vale[5] == tablet_vale[7])) == player_2:
+        print('player 2 is win')
+    else:
+        print('no win yet')
+
+count=0
+while count<9:
+    display_screen(tablet_vale)
+    position = int(input('Please player 1 enter a number : '))
+    print('\n')
+    tablet_vale.pop(position)
+    tablet_vale.insert(position, player_1)
+    display_screen(tablet_vale)
+    count += 1
+    print(count) # توضيح فقط
+    win(tablet_vale)
+    position = int(input('Please player 2 enter a number : '))
+    tablet_vale.pop(position)
+    tablet_vale.insert(position, player_2)
+    count+=1
+    print(count) # توضيح فقط
+    print(tablet_vale) # توضيح فقط
+    win(tablet_vale)
